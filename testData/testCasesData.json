@@ -1,0 +1,47 @@
+{  
+   "LoginAndMail":{  
+      "email":[  
+         {  
+            "to":"psgagneza@gmail.com",
+            "subject":"mail1",
+            "body":"body1"
+         },
+         {  
+            "to":"psgagneza@gmail.com",
+            "subject":"mail2",
+            "body":"body2"
+         }
+      ],
+      "validLogin":[  
+         {  
+            "userId":"psgagneza",
+            "password":""
+         }
+      ]
+
+},
+ "ForgotPasswordAndMail":{  
+      "email":[  
+         {  
+            "to":"psgagneza@gmail.com",
+            "subject":"mail1",
+            "body":"body1"
+         },
+         {  
+            "to":"psgagneza@gmail.com",
+            "subject":"mail2",
+            "body":"body2"
+         }
+      ],
+      "invalidLogin":[  
+         {  
+            "userId":"psgagneza",
+            "wrongPassword":"Pass",
+             "password":""
+         }
+      ]
+
+}
+
+
+}
