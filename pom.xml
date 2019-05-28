@@ -11,7 +11,7 @@
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<testng.suite.file>testng-suite.xml</testng.suite.file>
+		<testng.suite.file>testng-suite.xm</testng.suite.file>
 	</properties>
 	<build>
 		<plugins>
