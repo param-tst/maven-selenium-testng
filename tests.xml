@@ -1,0 +1,139 @@
+
+<!-- <?xml version="1.0" encoding="UTF-8"? > -->
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" >
+	
+	
+	
+	 <test name="validTest_csv">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	 <test name="validTest_tabular">
+	
+		 <parameter name="qeryInputs"
+			value="-e hive -c symbol,volume -m 252691200 -M 252691203 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	 <test name="validTest_presto">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -c symbol,volume -m 252691200 -M 252691203 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	<test name="validTest_allCol">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -m 252691200 -M 252691203 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	<test name="validTest_null_min_time">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -M 252691203 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	<test name="validTest_null_max_time">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	<test name="validTest_null_null_max_min_time">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -l 100 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	 <test name="validTest_limit_not given">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 querydb assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>  
+	
+	 <test name="InvalidTest_db">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 -l 100 querydb1 assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>
+	
+	<test name="InvalidTest_No_db_given">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 -l 100  assignment"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>
+	
+	<test name="InvalidTest_No_tb_given">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 -l 100  querydb "/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>
+	<test name="InvalidTest_wrong_tb">
+	
+		 <parameter name="qeryInputs"
+			value="-f csv -e hive -c symbol,volume -m 252691200 -M 252691203 -l 100  querydb assignment1"/>
+		
+			
+		<classes>
+			<class name="com.armtreasuredata.commandlinetool.Tests" />
+		</classes>
+	</test>
+	
+	
+</suite>

@@ -1,112 +1,100 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-	<groupId>hello</groupId>
-	<artifactId>demo123</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>demo123</name>
-	<url>http://maven.apache.org</url>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<testng.suite.file>testng-suite.xml</testng.suite.file>
-	</properties>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
-				<configuration>
-					<compilerVersion>1.8</compilerVersion>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-				<configuration>
-					<suiteXmlFiles>
-						<suiteXmlFile>${testng.suite.file}</suiteXmlFile>
-					</suiteXmlFiles>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<dependencies>
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
+  <groupId>com.armtreasuredata</groupId>
+  <artifactId>commandlinetool</artifactId>
+  <version>0.9.0</version>
+  <packaging>jar</packaging>
+
+  <name>commandlinetool</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
+    <suite.to.run>tests.xml</suite.to.run>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+ <!-- https://mvnrepository.com/artifact/com.github.jankroken/commandline -->
+ <dependency>
+    <groupId>com.github.jankroken</groupId>
+    <artifactId>commandline</artifactId>
+    <version>1.7.0</version>
+</dependency> 
+
+    <dependency>
+  <groupId>com.treasuredata.client</groupId>
+  <artifactId>td-client</artifactId>
+  <version>${version}</version>
+</dependency>
+
+<!-- If you are not using any slf4 logger binder, add the following dependency, too. -->
+<dependency>
+  <groupId>ch.qos.logback</groupId>
+  <artifactId>logback-classic</artifactId>
+  <version>1.2.3</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.msgpack/msgpack-core -->
+<dependency>
+    <groupId>org.msgpack</groupId>
+    <artifactId>msgpack-core</artifactId>
+    <version>0.8.18</version>
+</dependency>
+<dependency>
+  <groupId>info.picocli</groupId>
+  <artifactId>picocli</artifactId>
+  <version>4.0.4</version>
+</dependency>
+<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.13.1</version>
-			<scope>test</scope>
+			<version>7.0.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>4.0.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>4.0.1</version>
-		</dependency><!-- https://mvnrepository.com/artifact/jexcelapi/jxl -->
-		<dependency>
-			<groupId>jexcelapi</groupId>
-			<artifactId>jxl</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/au.com.bytecode/opencsv -->
-		<dependency>
-			<groupId>au.com.bytecode</groupId>
-			<artifactId>opencsv</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-api</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-chrome-driver</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-support</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.eclipsesource.minimal-json</groupId>
-			<artifactId>minimal-json</artifactId>
-			<version>0.9.5</version>
-		</dependency>
-	</dependencies>
+  </dependencies>
+  <build>
+  <plugins>
+       <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite.to.run}</suiteXmlFile>
+                       
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+      
+      <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <!-- annotationProcessorPaths requires maven-compiler-plugin version 3.5 or higher -->
+  <version>${maven-compiler-plugin-version}</version>
+  <configuration>
+   <source>1.8</source>
+          <target>1.8</target>
+  <!--   <annotationProcessorPaths>
+      <path>
+        <groupId>info.picocli</groupId>
+        <artifactId>picocli-codegen</artifactId>
+        <version>4.0.4</version>
+      </path>
+    </annotationProcessorPaths>
+    <compilerArgs>
+      <arg>-Aproject=${groupId}/${artifactId}</arg>
+    </compilerArgs> -->
+  </configuration>
+</plugin>
+    </plugins>
+    </build>
 </project>
