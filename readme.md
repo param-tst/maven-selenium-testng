@@ -45,8 +45,8 @@ $ mvn clean install
 
 ### command parameters
 ```sh
-$ -f csv -e hive -c 'my_col1,my_col2,my_col5'
--m 1427347140 -M 1 -e / --engine is optional and specifies the query engine: ‘presto’ by default
+$ -f csv -e hive -c my_col1,my_col2,my_col5
+-m 1427347140 -M 1 my_db my_table
 ```
 ### options while running project
 ```sh
