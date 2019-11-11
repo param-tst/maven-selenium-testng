@@ -7,6 +7,7 @@ import com.google.common.base.Function;
 import com.google.common.base.Throwables;
 import com.treasuredata.client.ExponentialBackOff;
 import com.treasuredata.client.TDClient;
+import com.treasuredata.client.TDClientHttpNotFoundException;
 import com.treasuredata.client.model.TDDatabase;
 import com.treasuredata.client.model.TDJob;
 import com.treasuredata.client.model.TDJobRequest;
@@ -29,7 +30,6 @@ public class Tests
 
 	private static boolean tableExist = false;
 	private static boolean dbExist = false;
-
 
 	@Test
 	@Parameters({ "qeryInputs" })
@@ -58,8 +58,8 @@ public class Tests
 			System.out.println(" Table: " + client.listTables(dbConfig.getDb_name()).size());
 			// can be replaced with throw statement and later can be handled in catch to
 			// inform user
-			if (!dbExist)
-				return;
+//			if (!dbExist)
+//				return;
 
 			for (TDTable table : client.listTables(dbConfig.getDb_name())) {
 				System.out.println(" Table: " + table);
@@ -71,8 +71,8 @@ public class Tests
 			}
 			// can be replaced with throw statement and later can be handled in catch to
 			// inform user
-			if (!tableExist)
-				return;
+//			if (!tableExist)
+//				return;
 			// Submit a new Presto query
 			if (dbConfig.getEngine().contains("presto"))
 				jobId = client.submit(TDJobRequest.newPrestoQuery(dbConfig.getDb_name(), dbConfig.toString()));
@@ -152,18 +152,10 @@ public class Tests
 		} catch (UnrecognizedSwitchException unrecognizedSwitchException) {
 			unrecognizedSwitchException.printStackTrace();
 
-		}
-
-		catch (Exception e) {
-
+		} catch (Exception e) {
 			e.printStackTrace();
-
-		}
-
-		finally {
-
+		} finally {
 			client.close();
-
 		}
 
 	}
